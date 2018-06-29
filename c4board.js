@@ -113,7 +113,7 @@ function checkForWinHorizontal() {
             var cell = map[i][j]
             if (cell !== "") {
                 if (map[i][j] && map[i][j+1] && map[i][j+2] && map[i][j+3] && map[i + 1][j] && cell === map[i][j + 1] && cell === map[i][j + 2] && cell === map[i][j + 3]) {
-                    console.log(currentPlayer + " wins horizontal!")
+                    alert(currentPlayer + " wins!")
                     resetGame();
                 }
             }
@@ -127,7 +127,7 @@ function checkForWinVertical() {
             var cell = map[i][j]
             if (cell !== "") {
                 if (map[i + 1] && map[i + 2] && map[i + 3] && map[i + 1][j] && cell === map[i + 1][j] && cell === map[i + 2][j] && cell === map[i + 3][j]) {
-                    console.log(currentPlayer + " wins vertical!")
+                    alert(currentPlayer + " wins!")
                     resetGame();
                 }
             }
@@ -141,7 +141,7 @@ function checkForWinDDown() {
             let cell = map[i][j]
             if (cell !== "") {
                 if (map[i - 1] && map[i - 2] && map[i - 3] && cell === map[i - 1][j - 1] && cell === map[i - 2][j - 2] && cell === map[i - 3][j - 3]) {
-                    console.log(currentPlayer + " wins ddown!")
+                    alert(currentPlayer + " wins!")
                     resetGame();
                 }
             }
@@ -155,7 +155,7 @@ function checkForWinDUp() {
             let cell = map[i][j]
             if (cell !== "") {
                 if (map[i + 1] && map[i + 2] && map[i + 3] && cell === map[i + 1][j - 1] && cell === map[i + 2][j - 2] && cell === map[i + 3][j - 3]) {
-                    console.log(currentPlayer + " wins dup!")
+                    alert(currentPlayer + " wins!")
                     resetGame();
                 }
             }
