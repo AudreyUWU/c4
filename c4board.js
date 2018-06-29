@@ -18,9 +18,10 @@ function resetGame() {
         ["", "", "", "", "", "", ""],
         ["", "", "", "", "", "", ""]
     ]
-    currentPlayer = "black"
+    currentPlayer = "black";
     drawBoard();
 }
+
 
 map.className = "map"
 
@@ -29,11 +30,12 @@ const red = document.getElementById("red");
 const mazeDiv = document.getElementById("mazeDiv");
 let currentPlayer = "black";
 
+
 function addDisc(column) {
     for (let i = 5; i >= 0; i--) {
         if (map[i][column] == "") {
             if (currentPlayer == "black") {
-                map[i][column] = black;
+                map[i][column] = "b"//black;
                 let test = document.getElementById("cell" + i + column);
                 test.innerHTML = '<img src="Black_Circle.png" class="disc">'
                 checkForWinHorizontal();
@@ -44,7 +46,7 @@ function addDisc(column) {
                 currentPlayer = "red";
                 return
             } else if (currentPlayer == "red") {
-                map[i][column] = red;
+                map[i][column] = "r"//red;
                 let test = document.getElementById("cell" + i + column);
                 test.innerHTML = '<img src= "Red_Circle.png" class="disc">'
                 checkForWinHorizontal();
@@ -112,7 +114,9 @@ function checkForWinHorizontal() {
         for (let j = 0; j < 7; j++) {
             var cell = map[i][j]
             if (cell !== "") {
-                if (map[i][j] && map[i][j+1] && map[i][j+2] && map[i][j+3] && map[i + 1][j] && cell === map[i][j + 1] && cell === map[i][j + 2] && cell === map[i][j + 3]) {
+                console.log(map[i][j],map[i][j+1],map[i][j+2],map[i][j+3])
+                if (map[i][j] && map[i][j+1] && map[i][j+2] && map[i][j+3] && cell === map[i][j + 1] && cell === map[i][j + 2] && cell === map[i][j + 3]) {
+                    console.log("made it")
                     alert(currentPlayer + " wins!")
                     resetGame();
                 }
@@ -128,7 +132,9 @@ function checkForWinVertical() {
             if (cell !== "") {
                 if (map[i + 1] && map[i + 2] && map[i + 3] && map[i + 1][j] && cell === map[i + 1][j] && cell === map[i + 2][j] && cell === map[i + 3][j]) {
                     alert(currentPlayer + " wins!")
+                    
                     resetGame();
+                    console.log(currentPlayer);
                 }
             }
         }
