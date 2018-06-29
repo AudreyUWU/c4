@@ -1,0 +1,26 @@
+.row {
+    display: flex; 
+    height: 50px;
+    width: 500px
+}
+
+.cell {
+    width: 50px; 
+    line-height: 50px;
+    text-align: center;
+    border: solid blue;
+}
+
+#mazeDiv {
+    position: relative;
+}
+
+.disc{
+    width: 44px;
+    height: 44px;
+    text-align: center;
+}
+
+.button {
+    width: 56px;
+}
