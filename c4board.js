@@ -1,3 +1,4 @@
+let isreset = 0;
 let map = [
     ["", "", "", "", "", "", ""],
     ["", "", "", "", "", "", ""],
@@ -8,6 +9,7 @@ let map = [
 ]
 
 function resetGame() {
+    
     let board = document.getElementById("mazeDiv");
     board.innerHTML = "";
     map = [
@@ -18,7 +20,7 @@ function resetGame() {
         ["", "", "", "", "", "", ""],
         ["", "", "", "", "", "", ""]
     ]
-    currentPlayer = "black";
+    isreset=1;
     drawBoard();
 }
 
@@ -32,6 +34,10 @@ let currentPlayer = "black";
 
 
 function addDisc(column) {
+    if (isreset==1) {
+        currentPlayer = "black"
+        isreset = 0;
+    }
     for (let i = 5; i >= 0; i--) {
         if (map[i][column] == "") {
             if (currentPlayer == "black") {
@@ -62,6 +68,7 @@ function addDisc(column) {
 
 
 function drawBoard() {
+    currentPlayer = "black";
     let storage = [];
     for (let row = 0; row < map.length; row++) {
         const rowStr = map[row];
